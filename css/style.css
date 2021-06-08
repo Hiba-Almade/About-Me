@@ -40,52 +40,65 @@ header img {
       text-align: center;
       font-weight: bold;
       margin-top: 200px;
+      margin-bottom: 20px;
       
   }
   
  
   #p1{
-    background-color: #B8D4FF;
+  
+    background-image: linear-gradient(#f8f9fa, #B8D4FF);
 
   }
- #p2{
-    background-color: #9CB8E7;
-    color: rgb(59, 59, 59);
+
+  
+  #p2{
+    background-image: linear-gradient(#B8D4FF, #819DCB);
 
   }
   #p3{
-    background-color: #819DCB;
-    color: rgb(93, 94, 95);
-
-  }
-  #p4{
-    background-color: #6683B0;
-    color: rgb(78, 76, 76);
-
+    background-image: linear-gradient(#819DCB, #6683B0);
+    
   }
   
-  #p5{
-    background-color: #32527B;
-    color: rgb(151, 148, 148);
-
-  }
-  #p6{
-      background-color: #153B62;
-      color: rgb(209, 209, 209);
-  }
-  #p7{
-      background-color: #00264A;
-      color: rgb(255, 255, 255);
-  }
 
 div{
-    font-size: 18px;
-    padding: 10px;
+  font-size: 18px;
+  padding: 10px;
   margin:auto;
   text-align: center;
   font-weight: bold;
   line-height: 2;
   
+}
+ol{
+  list-style-type:decimal;
+  border: 1px;
+ 
+	font-size: 100%;
+  display:list-item;
+  text-align: left;
+  margin-left: 60px;
+  font-family:Tahoma;
+  line-height: 2;
+}
+
+ul{
+  list-style:circle;
+  border: 1px;
+ 
+	font-size: 100%;
+  display:list-item;
+  text-align: left;
+  margin-left: 60px;
+  font-family:Tahoma;
+  line-height: 2;
+}
+.listp{
+  text-align: left;
+  margin-left: 40px;
+  font-size: 20px;
+  color: #263953;
 }
 
 
@@ -94,4 +107,5 @@ footer{
     color: rgb(24, 23, 23);
     text-align: center;
     margin-top: 50px;
+    line-height: 60px;
 }
