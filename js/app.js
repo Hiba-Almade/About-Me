@@ -1,125 +1,111 @@
 
 let userName = prompt('What is your name?');
-alert('Hello '+userName+', welcome to my website.');
-alert('I am Hiba, Can you expect some information about me?');
+
+alert('Hello '+userName+', welcome to my website.\nI am Hiba, can you expect some information about me?');
 
 let score=0;
-let studyUni = prompt('Do you think I graduated from university?').toLowerCase();
-if(studyUni === 'yes' || studyUni === 'y') {
-  alert('That\'s right, I graduated in 2021');
-  //console.log('Correct answer for my studies');
-  score++;
-} else if (studyUni === 'no' || studyUni === 'n') {
-  alert('Wrong answer, I already graduated');
-} else {
-  alert('Please type (yes) or (no) or (y) or (n) in the next questions');
-}
 
+let qs = [
+  ['Do you think I graduated from university?', 'y','yes', 'That\'s right, I graduated in 2021', 'Wrong answer, I already graduated' ],
+  ['Do you think I like coffee?', 'y','yes', 'Yes, I drink a lot of coffee every day.', 'In fact, I love coffee a lot and drink it all the time.' ],
+  ['Do you think I like a dogs?', 'n', 'no','Yes, I love cats, not dogs.', 'Not really, I\'m afraid of dogs a lot.'],
+  ['Do you think I like Watch TV?', 'n', 'no','Exactly, I don\'t spend any time watching TV.', 'Actually, I don\'t like watching TV.'],
+  ['Do you think I visited the sea?', 'n', 'no','Yes, unfortunately, I have never been to the sea before, but I love it very much.', 'I wish it was the right answer but no.' ]
+];
 
-let coffee = prompt('Do you think I like coffee?').toLowerCase();
-if(coffee === 'yes' || coffee === 'y') {
-  alert('Yes, I drink a lot of coffee every day.');
-  //console.log('Correct answer about coffee');
-  score++;
-} else if (coffee === 'no' || coffee === 'n') {
-  alert('In fact, I love coffee a lot and drink it all the time.');
-} else {
-  alert('Please type (yes) or (no) or (y) or (n) in the next questions');
-}
+let yn = ['yes', 'y', 'no', 'n'];
 
+// calling the three main functions
+first(qs);
+second();
+third();
 
-let dog = prompt('Do you think I like a dogs?').toLowerCase();
-if(dog === 'yes' || dog === 'y') {
-  alert('Not really, I\'m afraid of dogs a lot.');  
-} else if (dog === 'no' || dog === 'n') {
-  alert('Yes, I love cats, not dogs.');
-  //console.log('Correct answer about dogs');
-  score++;
-} else {
-  alert('Please type (yes) or (no) or (y) or (n) in the next questions');
-}
+function first(qs){
+  for (let i = 0; i < qs.length; i++){
+    let ans = prompt(qs[i][0]).toLowerCase();
 
+    while (yn.indexOf(ans) == -1) {
+      ans = prompt(qs[i][0]).toLowerCase();
+    }
 
-let tv = prompt('Do you think I like Watch TV?').toLowerCase();
-if(tv === 'yes' || tv === 'y') {
-  alert('Actually, I don\'t like watching TV.');  
-} else if (tv === 'no' || tv === 'n') {
-  alert('Exactly, I don\'t spend any time watching TV.');
-  //console.log('Correct answer about watching TV.');
-  score++;
-} else {
-  alert('Please type (yes) or (no) or (y) or (n) in the next questions');
-}
-
-
-
-
-let sea = prompt('Do you think I visited the sea?').toLowerCase();
-if(sea === 'yes' || sea === 'y') {
-  alert('I wish it was the right answer but no.');  
-} else if (sea === 'no' || sea === 'n') {
-  alert('Yes, unfortunately, I have never been to the sea before, but I love it very much.');
-  //console.log('Correct answer about the sea.');
-  score++;
-} else {
-  alert('Please type (yes) or (no) or (y) or (n) in the next time.');
-}
-
-
-let correctMonth = false;
-let month = prompt('Can you predict my birth month? Choose a number between (1-12), you have 4 attempts');
-for (let i = 4; i > 1; i--) {
-  if (month == 6) {
-    alert('Well done, I was born in the month of June (6)');
-    correctMonth = true;
-    //console.log('Correct answer about birth month.');
-    score++;
-    break;
-
-  } else if (month > 6) {
-    month = prompt('No. Choose a number less than that. You have ' + (i - 1) + ' attempts left');
-
-  } else if (month < 6) {
-    month = prompt('No. Choose a number more than that. You have ' + (i - 1) + ' attempts left');
-
-  } else {
-    month = prompt('No.Please enter a valid value. You have' + (i - 1) + ' attempts left');
+    if (ans == qs[i][1] || ans == qs[i][2] ){
+      alert(qs[i][3]);
+      score++;
+      console.log(score);
+    } else {
+      alert(qs[i][4]);
+    }
 
   }
-}
-if (correctMonth === false) {
-  alert('Attempts ended, the correct answer was 6');
+
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-let correctNumber = false;
-let stopWhile= false;
-let favNumber = [6, 28, 19, 9, 36];
-let attempt=6;
-let number=prompt('There are a bunch of my favorite numbers, can you guess one of them? You have 6 attempts.');
-while(attempt>1){
-  for(let i=0; i<favNumber.length; i++){
-    if(number == favNumber[i]){
-      alert('Yes,'+number+' is one of my favorite group of numbers');
-      correctNumber=true;
-      stopWhile=true;
-      //console.log('Correct answer about the favorite day.');
+function second(){
+  alert('Now, to the second section, which will require you to guess a number');
+  let correctMonth = false;
+  let month = prompt('Can you predict my birth month? Choose a number between (1-12), you have 4 attempts');
+  for (let i = 4; i > 1; i--) {
+    if (month == 6) {
+
+      alert('Well done! I was born on June (6)');
+      correctMonth = true;
+      console.log('Correct answer about birth month.'); // testing
       score++;
       break;
+
+    } else if (month > 6) {
+      month = prompt('No, choose a number LESS than that. You have ' + (i - 1) + ' attempts left');
+
+    } else if (month < 6) {
+      month = prompt('No, choose a number MORE than that. You have ' + (i - 1) + ' attempts left');
+
+    } else {
+      month = prompt('No, please enter a valid value. You have' + (i - 1) + ' attempts left');
+
     }
   }
-  if(stopWhile == true){
-    break;
+  if (correctMonth === false) {
+    alert('Attempts ended, the correct answer was June (6)');
   }
-  number=prompt('Wrong answer, try again. You have '+(attempt-1)+' attempts left');
-  attempt--;
-}
-if(correctNumber == false){
-  alert('Attempts ended, the correct answer was (6, 28, 9, 19, 36)');
 }
 
-alert('Your score on my quiz is '+score+' out of 7. ('+ ((100/7)*score)+'%)');
 
-alert('Nise to meet you '+ userName+ ', I think we became friends, you know a lot about me now ^_^');
+function third(){
+  let correctNumber = false;
+  let stopWhile= false;
+  let colors = ['blue', 'white', 'black'];
+  let attempt=6;
+  alert('Now, to the third and last section, which will require you to at least guess one of 3 favorite things.');
+  let color=prompt('Can you guess which are my favorite colors?\nYou have 6 attempts').toLocaleLowerCase();
+  while(attempt>1){
+    for(let i=0; i<colors.length; i++){
+      if(color == colors[i]){
+        alert('Yes,'+[...colors]+' are my favorite colors.');
+        correctNumber=true;
+        stopWhile=true;
+        console.log('Correct answer about the favorite color.'); // testing
+        score++;
+        break;
+      }
+    }
+    if(stopWhile == true){
+      break;
+    }
+    color =prompt('Wrong answer, try again.\nYou have '+(attempt-1)+' attempts left.');
+    attempt--;
+  }
+  if(correctNumber == false){
+    alert('Attempts ended, my favorite colors are Blue, Black and White.');
+  }
+
+  alert(`Thank you ${userName} for taking this quiz about me, and I hope we get to know each other better in the future.\nYou scored ${score} out of 7, ${(100/7)*score}%\nSee you soon!`);
+
+}
+
+// alert('Your score on my quiz is '+score+' out of 7. ('+ ((100/7)*score)+'%)');
+// alert('Nise to meet you '+ userName+ ', I think we became friends, you know a lot about me now ^_^');
+
 
