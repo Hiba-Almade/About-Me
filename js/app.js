@@ -31,7 +31,6 @@ function first(qs){
     if (ans == qs[i][1] || ans == qs[i][2] ){
       alert(qs[i][3]);
       score++;
-      console.log(score);
     } else {
       alert(qs[i][4]);
     }
@@ -40,7 +39,6 @@ function first(qs){
 
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function second(){
@@ -52,7 +50,6 @@ function second(){
 
       alert('Well done! I was born on June (6)');
       correctMonth = true;
-      console.log('Correct answer about birth month.'); // testing
       score++;
       break;
 
@@ -86,7 +83,6 @@ function third(){
         alert('Yes,'+[...colors]+' are my favorite colors.');
         correctNumber=true;
         stopWhile=true;
-        console.log('Correct answer about the favorite color.'); // testing
         score++;
         break;
       }
@@ -104,8 +100,3 @@ function third(){
   alert(`Thank you ${userName} for taking this quiz about me, and I hope we get to know each other better in the future.\nYou scored ${score} out of 7, ${(100/7)*score}%\nSee you soon!`);
 
 }
-
-// alert('Your score on my quiz is '+score+' out of 7. ('+ ((100/7)*score)+'%)');
-// alert('Nise to meet you '+ userName+ ', I think we became friends, you know a lot about me now ^_^');
-
-
